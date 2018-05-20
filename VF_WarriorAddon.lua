@@ -101,9 +101,15 @@ function VF_WA_OnEvent()
 		if((actionStatus == "Miss" or actionStatus == "Resist" or actionStatus == "Dodge") and spellEffect == "Mocking Blow") then
 			SendChatMessage("Mocking Blow Resisted!", "RAID");
 			SendChatMessage("Mocking Blow Resisted!", "PARTY");
+			SendChatMessage("Mocking Blow Resisted!", "RAID_WARNING");
+		elseif((actionStatus == "Miss" or actionStatus == "Resist" or actionStatus == "Dodge") and spellEffect == "Shield Slam") then
+			SendChatMessage("Shield Slam Missed!", "RAID");
+			SendChatMessage("Shield Slam Missed!", "PARTY");
+			SendChatMessage("Shield Slam Missed!", "RAID_WARNING");
 		elseif(actionStatus == "Resist" and spellEffect == "Taunt") then
 			SendChatMessage("Taunt Resisted!", "RAID");
 			SendChatMessage("Taunt Resisted!", "PARTY");
+			SendChatMessage("Taunt Resisted!", "RAID_WARNING");
 		elseif(actionStatus == "Resist" and spellEffect == "Challenging Shout") then
 			SendChatMessage("Challenging Shout Resisted!", "RAID");
 			SendChatMessage("Challenging Shout Resisted!", "PARTY");

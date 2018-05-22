@@ -80,19 +80,19 @@ function VF_WA_OnEvent()
 		if(spellEffect == nil or creature == nil or dmg == nil) then
 			_, _, spellEffect, creature = string.find(arg1, "Your (.*) was resisted by (.*).");
 			dmg = 0;
-			actionStatus = "Resist";
+			actionStatus = "Resisted";
 		end
 		
 		if(spellEffect == nil or creature == nil or dmg == nil) then
 			_, _, spellEffect, creature = string.find(arg1, "Your (.*) missed (.*).");
 			dmg = 0;
-			actionStatus = "Miss";
+			actionStatus = "Missed";
 		end
 		
 		if(spellEffect == nil or creature == nil or dmg == nil) then
 			_, _, spellEffect, creature = string.find(arg1, "Your (.*) was dodged by (.*).");
 			dmg = 0;
-			actionStatus = "Dodge";
+			actionStatus = "Dodged";
 		end
 		
 		if(spellEffect == nil or creature == nil or dmg == nil) then

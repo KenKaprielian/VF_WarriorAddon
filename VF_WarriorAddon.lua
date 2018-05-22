@@ -96,23 +96,16 @@ function VF_WA_OnEvent()
 		end
 		
 		if(spellEffect == nil or creature == nil or dmg == nil) then
+			_, _, spellEffect, creature = string.find(arg1, "Your (.*) is parried by (.*).");
+			dmg = 0;
+			actionStatus = "Parried";
+		end
+		
+		if(spellEffect == nil or creature == nil or dmg == nil) then
 			actionStatus = "Unknown";
 		end
-		if((actionStatus == "Miss" or actionStatus == "Resist" or actionStatus == "Dodge") and spellEffect == "Mocking Blow") then
-			SendChatMessage("Mocking Blow Resisted!", "RAID");
-			SendChatMessage("Mocking Blow Resisted!", "PARTY");
-			SendChatMessage("Mocking Blow Resisted!", "RAID_WARNING");
-		elseif((actionStatus == "Miss" or actionStatus == "Resist" or actionStatus == "Dodge") and spellEffect == "Shield Slam") then
-			SendChatMessage("Shield Slam Missed!", "RAID");
-			SendChatMessage("Shield Slam Missed!", "PARTY");
-			SendChatMessage("Shield Slam Missed!", "RAID_WARNING");
-		elseif(actionStatus == "Resist" and spellEffect == "Taunt") then
-			SendChatMessage("Taunt Resisted!", "RAID");
-			SendChatMessage("Taunt Resisted!", "PARTY");
-			SendChatMessage("Taunt Resisted!", "RAID_WARNING");
-		elseif(actionStatus == "Resist" and spellEffect == "Challenging Shout") then
-			SendChatMessage("Challenging Shout Resisted!", "RAID");
-			SendChatMessage("Challenging Shout Resisted!", "PARTY");
+		if((actionStatus ~= "Hit" and actionStatus ~= "Crit") and (spellEffect == "Mocking Blow" or spellEffect == "Shield Slam" or spellEffect == "Taunt" or spellEffect == "Sinister Strike")) then
+			SendChatMessage(UnitName("player") .. "'s" .. " " .. spellEffect .. " " .. actionStatus .. "!", "SAY");
 		elseif(actionStatus == "Unknown") then
 			VF_WA_DebugPrint("UNPARSED3: "..arg1);
 		end

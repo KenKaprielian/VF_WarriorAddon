@@ -1,7 +1,7 @@
 --VF_WarriorAddon
 --Written by Dilatazu @ EmeraldDream @ www.EmeraldDream.com / www.wow-one.com
 
-VF_WA_Version = "1.0";
+VF_WA_Version = "1.2";
 
 function VF_WA_OnLoad()
 	--this:RegisterEvent("CHAT_MSG_SPELL_SELF_BUFF");
